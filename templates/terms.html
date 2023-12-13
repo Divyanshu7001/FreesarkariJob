@@ -1,0 +1,685 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#195182">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link async="" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{url_for('static',filename='assets/css/main.css')}}" type="text/css" rel="stylesheet">
+    <style type="text/css">
+        table.expiring-soon-posts thead tr th,
+        table.jobs_table thead tr th,
+        table.today-posts thead tr th {
+            min-width: 140px;
+            font-weight: 700;
+            background-color: #195182;
+            color: #fff
+        }
+
+        table.expiring-soon-posts tr td,
+        table.jobs_table tr td,
+        table.today-posts tr td {
+            vertical-align: middle
+        }
+
+        @media only screen and (max-width:760px),
+        (min-device-width:768px) and (max-device-width:1024px) {
+
+            .jobs_table table,
+            .jobs_table tbody,
+            .jobs_table td,
+            .jobs_table th,
+            .jobs_table thead,
+            .jobs_table tr {
+                display: block
+            }
+
+            .today-posts table,
+            .today-posts tbody,
+            .today-posts td,
+            .today-posts th,
+            .today-posts thead,
+            .today-posts tr {
+                display: block
+            }
+
+            .expiring-soon-posts table,
+            .expiring-soon-posts tbody,
+            .expiring-soon-posts td,
+            .expiring-soon-posts th,
+            .expiring-soon-posts thead,
+            .expiring-soon-posts tr {
+                display: block
+            }
+
+            .expiring-soon-posts thead tr,
+            .jobs_table thead tr,
+            .today-posts thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px
+            }
+
+            .expiring-soon-posts tr,
+            .jobs_table tr,
+            .today-posts tr {
+                margin: 0 0 10px 0;
+                border: 1px solid #d0d0d0;
+                box-shadow: 0 0 4px #d0d0d0;
+                padding: 10px
+            }
+
+            .expiring-soon-posts td,
+            .jobs_table td,
+            .today-posts td {
+                border: none !important;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding: 4px !important;
+                overflow: hidden
+            }
+
+            .expiring-soon-posts tr:nth-child(odd),
+            .jobs_table tr:nth-child(odd),
+            .today-posts tr:nth-child(odd) {
+                background: #fff !important
+            }
+
+            .expiring-soon-posts td:before,
+            .jobs_table td:before,
+            .today-posts td:before {
+                position: absolute;
+                top: 0;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap
+            }
+
+            .today-posts td:nth-of-type(1) div:before {
+                content: "Board : ";
+                font-weight: 700;
+                color: #62696f
+            }
+
+            .today-posts td:nth-of-type(3) div:before {
+                content: "Qualifications : ";
+                font-weight: 700;
+                color: #62696f
+            }
+
+            .today-posts td:nth-of-type(4) div:before {
+                content: "Last Date : ";
+                font-weight: 700;
+                color: #62696f
+            }
+
+            .expiring-soon-posts td:nth-of-type(1) div:before {
+                content: "Last Date : ";
+                font-weight: 700;
+                color: #62696f
+            }
+
+            .expiring-soon-posts td:nth-of-type(2) div:before {
+                content: "Board : ";
+                font-weight: 700;
+                color: #62696f
+            }
+
+            .expiring-soon-posts td:nth-of-type(4) div:before {
+                content: "Qualifications : ";
+                font-weight: 700;
+                color: #62696f
+            }
+
+            #jobs_table td:nth-of-type(1) div:before {
+                content: "Board : ";
+                font-weight: 700;
+                color: #62696f
+            }
+
+            #jobs_table td:nth-of-type(2) div:before {
+                content: "Qualifications : ";
+                font-weight: 700;
+                color: #62696f
+            }
+
+            #jobs_table td:nth-of-type(3) div:before {
+                content: "Vacancies : ";
+                font-weight: 700;
+                color: #62696f
+            }
+
+            #jobs_table td:nth-of-type(4) div:before {
+                content: "Last Date : ";
+                font-weight: 700;
+                color: #62696f
+            }
+        }
+    </style>
+</head>
+
+<body style="padding: 0px; overflow-x: hidden; max-width:100vw"> <noscript><iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TMHX5CP" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <style type="text/css">
+        nav.navbar {
+            box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+            font-weight: 300;
+        }
+
+        nav.navbar li.nav-item a.nav-link {
+            font-weight: 600;
+        }
+
+        .brand {
+            background: #094071
+        }
+
+        .search_bar {
+            padding-top: 10px
+        }
+
+        #main-menu2 {
+            background: #0ABE51;
+            z-index: 1;
+            border-bottom: 3px solid #FFF;
+        }
+
+        #main-menu2 li a {
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main-menu2 li.active a,
+        #main-menu2 li:hover a {
+            background: #FFF;
+            color: #000 !important
+        }
+
+        @media (min-width: 992px) {
+            .search_bar {
+                padding-top: 0px !important;
+            }
+
+            #menu_btn {
+                display: none;
+            }
+        }
+
+        #search_btn {
+            text-transform: capitalize;
+            font-size: 14px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+    </style>
+    <div class="brand" style=" position: sticky !important; width: 100%; top:0% ;z-index: 400;">
+        <nav class="navbar navbar-expand-lg navbar-dark" id="main-menu"
+            style="background: linear-gradient(to right, rgb(13, 242, 242) 0%, rgb(42, 157, 206) 100%); position: sticky; width: 100%; top:0% ;z-index: 400;">
+            <div class="container1">
+                <a class="navbar-brand mr-3" id="logo" href="/"> <img src="/static/assets/final.PNG" alt="Logo"
+                        class="img-fluid"></a>
+                <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        aria-hidden="true" role="img" width="22" height="22" preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 20 20">
+                        <path fill="white" d="M20 5V2H0v3h20zm0 6V8H0v3h20zm0 6v-3H0v3h20z"></path>
+                    </svg>
+                </button>
+                <style>
+                    .container1 {
+                        margin-left: 60px;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -ms-flex-wrap: wrap;
+                        flex-wrap: wrap;
+                        -ms-flex-align: center;
+                        align-items: center;
+                        -ms-flex-pack: justify;
+                        justify-content: space-between;
+                        width: 100%;
+                    }
+
+                    @media screen and(min-width: 576px) and (max-width:767px) {
+                        .container1 {
+                            max-width: 540px;
+                        }
+                    }
+
+                    @media screen and (min-width: 768px) and (max-width:991px) {
+                        .container1 {
+                            max-width: 720px;
+                        }
+                    }
+
+                    @media screen and (min-width: 992px) and (max-width:1199px) {
+                        .container1 {
+                            max-width: 1100px;
+                        }
+                    }
+
+                    @media screen and (min-width: 1200px) {
+                        .container1 {
+                            max-width: 1400px;
+                        }
+                    }
+
+                    .ml-set {
+                        margin-left: auto !important;
+                    }
+
+                    @media (min-width: 300px) and (max-width:840px) {
+                        .container1 {
+                            margin-left: 30px;
+                        }
+                    }
+
+                    #logo img {
+                        height: 67px;
+                        width: 210px;
+                        transform: scale(1.21);
+                        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+                    }
+
+                    #logo {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    /* Optional: Adjust the navbar brand text styling */
+                    #logo a {
+                        color: white;
+                        /* Adjust the color of the text */
+                        font-size: 1.2rem;
+                        /* Adjust the font size of the text */
+                        text-decoration: none;
+                        font-weight: bold;
+                    }
+
+                    /* Optional: Center the logo vertically within the navbar */
+                    .navbar-brand {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .navbar-nav a {
+                        position: relative;
+                        text-decoration: none;
+                        font-weight: 500;
+                        overflow: hidden;
+                    }
+
+                    .navbar-nav a::before {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 0;
+                        height: 2px;
+                        /* Adjust the height of the underline as needed */
+                        background-color: whitesmoke;
+                        /* Adjust the color of the underline as needed */
+                        transition: width 0.4s ease-in-out;
+                    }
+
+                    .navbar-nav a:hover::before {
+                        width: 100%;
+                    }
+                </style>
+
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <ul class="navbar-nav ml-set">
+                        <li class="nav-item active"> <a class="nav-link" href="/"
+                                style="color: black !important; text-decoration: none; font-weight: 700;"
+                                onmouseover="this.style.fontWeight='740'"
+                                onmouseout=" this.style.fontWeight='700';">Home</a>
+                        </li>
+                        <li class="nav-item "> <a class="nav-link" href="/all_jobs"
+                                style="color: black !important; text-decoration: none; font-weight: 700;"
+                                onmouseover="this.style.fontWeight='740'"
+                                onmouseout=" this.style.fontWeight='700';">Latest
+                                Jobs</a> </li>
+                        <li class="nav-item "> <a class="nav-link" href="/results"
+                                style="color: black !important; text-decoration: none; font-weight: 700;"
+                                onmouseover="this.style.fontWeight='740'"
+                                onmouseout=" this.style.fontWeight='700';">Results</a>
+                        </li>
+                        <li class="nav-item "> <a class="nav-link" href="/admits"
+                                style="color: black !important; text-decoration: none; font-weight: 700;"
+                                onmouseover="this.style.fontWeight='740'"
+                                onmouseout=" this.style.fontWeight='700';">Admit
+                                Card</a> </li>
+                        {% if toggel %}
+                        <li class="nav-item "> <a class="nav-link" href="/logout"
+                                style="color: black !important; text-decoration: none; font-weight: 700;"
+                                onmouseover="this.style.fontWeight='740'"
+                                onmouseout=" this.style.fontWeight='700';">LogOut</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item "> <a class="nav-link" href="/login"
+                                style="color: black !important; text-decoration: none; font-weight: 700;"
+                                onmouseover="this.style.fontWeight='740'" onmouseout=" this.style.fontWeight='700';">Log
+                                In/Sign Up</a> </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <button class="navbar-toggler1" id="navbar-toggler1" type="button" data-toggle="collapse"
+                    data-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        aria-hidden="true" role="img" width="22" height="22" preserveAspectRatio="xMidYMid meet"
+                        viewBox="0 0 20 20">
+                        <path fill="white" d="M20 5V2H0v3h20zm0 6V8H0v3h20zm0 6v-3H0v3h20z"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var button = document.getElementById('navbar-toggler');
+                var target = document.getElementById('main-nav');
+
+                if (button && target) {
+                    button.addEventListener('click', function () {
+                        target.classList.toggle('show');
+                    });
+
+                    // Close the collapsed content when the button is clicked again
+                    document.addEventListener('click', function (event) {
+                        if (!button.contains(event.target) && !target.contains(event.target)) {
+                            target.classList.remove('show');
+                        }
+                    });
+                }
+            });
+        </script>
+    </div>
+    <style type="text/css">
+        #mobile_search {
+            display: none;
+        }
+
+        #search_block {
+            background: #e8e8e8;
+            border-radius: 9px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            #mobile_search {
+                display: block;
+            }
+        }
+    </style>
+    <style type="text/css">
+        #breadcrumbs {
+            background-color: #f1f1f1;
+            padding: 10px
+        }
+
+        .btn-outline-primary,
+        .pagination li.page-item.active {
+            background-color: #195182 !important
+        }
+
+        .text-primary,
+        .pagination a.page-link {
+            color: #195182 !important
+        }
+
+        li.page-item.active a.page-link {
+            color: #fff !important
+        }
+    </style>
+    <!-- </div> -->
+    <style type="text/css">
+        #download_android_app {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-transform: capitalize;
+            position: fixed;
+            right: 15px;
+            bottom: 20px;
+            z-index: 9999;
+            font-size: 16px !important;
+        }
+
+        .footer-links {
+            padding-top: 10px;
+            padding-bottom: 10px
+        }
+
+        .btn,
+        .btn-link,
+        .dropdown-item {
+            font-weight: 600
+        }
+    </style>
+    <div class="white">
+        <div class="container pb-4"><br>
+            <h1 class="text-center p-4">Terms and Conditions</h1>
+            <div class="page_content text-justify fr">
+                <p>These terms and conditions outline the rules and regulations for the use of FreesarkariJob’s
+                    Website.
+                </p>
+                <p>By accessing this website we assume you accept these terms and conditions in full. Do not continue to
+                    use
+                    FreesarkariJob’s website if you do not accept all of the terms and conditions stated on this page.
+                </p>
+                <p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer
+                    Notice
+                    and any or all Agreements: “Client”, “You” and “Your” refers to you, the person accessing this
+                    website
+                    and accepting the Company’s terms and conditions. “The Company”, “Ourselves”, “We”, “Our” and “Us”,
+                    refers to our Company. “Party”, “Parties”, or “Us”, refers to both the Client and ourselves, or
+                    either
+                    the Client or ourselves. All terms refer to the offer, acceptance and consideration of payment
+                    necessary
+                    to undertake the process of our assistance to the Client in the most appropriate manner, whether by
+                    formal meetings of a fixed duration, or any other means, for the express purpose of meeting the
+                    Client’s
+                    needs in respect of provision of the Company’s stated services/products, in accordance with and
+                    subject
+                    to, prevailing law of . Any use of the above terminology or other words in the singular, plural,
+                    capitalisation and/or he/she or they, are taken as interchangeable and therefore as referring to
+                    same.
+                </p>
+                <!-- <h2>Cookies</h2>
+                <p>We employ the use of cookies. By using Allgovernmentjob’s website you consent to the use of cookies
+                    in
+                    accordance with Allgovernmentjob’s privacy policy.</p>
+                <p>Most of the modern day interactive web sites use cookies to enable us to retrieve user details for
+                    each
+                    visit. Cookies are used in some areas of our site to enable the functionality of this area and ease
+                    of
+                    use for those people visiting. Some of our affiliate / advertising partners may also use cookies.
+                </p> -->
+                <h2>License</h2>
+                <p>Unless otherwise stated, FreesakariJob and/or it’s licensors own the intellectual property rights
+                    for
+                <p>You must not:</p>
+                <ol>
+                    <li>Republish material from https://FreesakariJob.in/</li>
+                    <li>Sell, rent or sub-license material from https://FreesakariJob.in/</li>
+                    <li>Reproduce, duplicate or copy material from https://FreesakariJob.in/</li>
+                </ol>
+                <p>Redistribute content from FreesarkariJob (unless content is specifically made for redistribution)
+                </p>
+                <h2>User Comments</h2>
+                <ol>
+                    <li>This Agreement shall begin on the date hereof.</li>
+                    <li>FreesarkariJob reserves the right to monitor all Comments and to remove any Comments which it
+                        considers in its absolute discretion to be inappropriate, offensive or otherwise in breach of
+                        these
+                        Terms and Conditions.</li>
+                    <li>You warrant and represent that:<ol>
+                            <li>You are entitled to post the Comments on our website and have all necessary licenses and
+                                consents to do so;</li>
+                            <li>The Comments do not infringe any intellectual property right, including without
+                                limitation
+                                copyright, patent or trademark, or other proprietary right of any third party;</li>
+                            <li>The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise
+                                unlawful material or material which is an invasion of privacy</li>
+                            <li>The Comments will not be used to solicit or promote business or custom or present
+                                commercial
+                                activities or unlawful activity.</li>
+                        </ol>
+                    </li>
+                    <li>You hereby grant to FreesarkariJob a non-exclusive royalty-free license to use, reproduce,
+                        edit
+                        and authorize others to use, reproduce and edit any of your Comments in any and all forms,
+                        formats
+                        or media.</li>
+                </ol>
+                <h2>Disclaimer</h2>
+                <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and
+                    conditions relating to our website and the use of this website (including, without limitation, any
+                    warranties implied by law in respect of satisfactory quality, fitness for purpose and/or the use of
+                    reasonable care and skill). Nothing in this disclaimer will:</p>
+                <ol>
+                    <li>limit or exclude our or your liability for death or personal injury resulting from negligence;
+                    </li>
+                    <li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
+                    <li>limit any of our or your liabilities in any way that is not permitted under applicable law; or
+                    </li>
+                    <li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
+                </ol>
+                <p>The limitations and exclusions of liability set out in this Section and elsewhere in this disclaimer:
+                    (a)
+                    are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer
+                    or
+                    in relation to the subject matter of this disclaimer, including liabilities arising in contract, in
+                    tort
+                    (including negligence) and for breach of statutory duty.</p>
+                <p>To the extent that the website and the information and services on the website are provided free of
+                    charge, we will not be liable for any loss or damage of any nature.</p>
+            </div>
+        </div>
+    </div>
+    <style>
+        .ml-set1 {
+            margin-left: -7% !important;
+        }
+
+        .footer-last {
+            text-align: right;
+            margin-right: 40px;
+        }
+
+
+        .container2 {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        @media screen and(min-width: 576px) and (max-width:767px) {
+            .container2 {
+                max-width: 540px;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width:991px) {
+            .container2 {
+                max-width: 720px;
+            }
+        }
+
+        @media screen and (min-width: 992px) and (max-width:1199px) {
+            .container2 {
+                max-width: 1100px;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            .container2 {
+                max-width: 1400px;
+            }
+        }
+
+        @media screen and (min-width:320px) and (max-width:411px) {
+            .ml-set-mobile {
+                margin-left: 22% !important;
+            }
+
+            .footer-last {
+                text-align: right;
+                margin-right: 40px;
+            }
+        }
+
+        .contact-dev {
+            margin-left: 4%;
+        }
+
+        .contact1 {
+            margin-left: 3%;
+        }
+
+        @media (min-width:1350px) {
+            .contact1 {
+                margin-left: 42px;
+            }
+        }
+
+        @media screen and (min-width:411px) and (max-width:465px) {
+            .ml-set-mobile {
+                margin-left: 28% !important;
+            }
+
+            .footer-last {
+                text-align: right;
+            }
+        }
+    </style>
+    <footer class="page-footer font-small unique-color-dark">
+        <div class="footer-copyright p-3">
+            <div class="container2">
+                <div class="row" style="justify-content: space-between !important;">
+                    <div class="col-md-7 contact1">
+                        <div class="footer-links"> <a href="/contact_us">Contact Us/About Us</a> </div>
+                        <div class="footer-links"> <a href="/privacy">Privacy Policy</a>
+                        </div>
+                        <div class="footer-links"> <a href="/terms">Terms and
+                                Conditions</a>
+                        </div>
+                    </div>
+                    <div class="footer-links ml-set-mobile" <a href="" title=" DMCA.com Protection
+                            Status" class="dmca-badge">
+                        <img src="" alt="DMCA.com Protection Status"></a>
+                    </div>
+                    <!-- <div class="ml-set1"> -->
+                    <div class="footer-links footer-last ml-set-mobile">
+                        <a href="/">FreesarkariJob</a> © 2023
+                    </div>
+                </div><br>
+            </div>
+            <div class="contact-dev">
+                <div class="">
+                    <p style="margin-bottom: 0;">This web application is built and deployed by Tuhin Kairi & Divyanshu
+                        Kumar
+                        Verma.</p>
+                </div>
+                <div class="">Developer Contact Details:</div>
+                <div class="">Contact Id: www.closedservice701@gmail.com</div>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+</html>

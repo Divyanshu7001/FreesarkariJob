@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#195182">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="">
+    <meta name="msapplication-TileImage" content="">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <link rel="canonical" href="">
+    <title>FreesarkariJob - Every job notification you can think of available</title>
+    <meta name="Description"
+        content="Find you Latest Notifications for All Government jobs across India and First Govt jobs forum for all Examination Discussion. Get Free SMS Alert subscription to the New updates of Sarkari naukri, Results, Mock Test and all.">
+    <meta name="keywords"
+        content="All Government jobs, Free SMS Alert, Sarkari naukri, Latest govt Jobs, Sarkari results, Free job alert, Govt jobs Alert, Latest Notifications, Recruitment">
+    <link rel="icon" href="/static/assets/final.PNG" type="image/png" sizes="20x20">
+
+    <link async="" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ url_for('static',filename = 'assets/css/main.css')}}" type="text/css" rel="stylesheet">
+    <style type="text/css">
+        .banner-container .jobsinfo,
+        .banner-container .subscribe {
+            display: none
+        }
+
+        @media (min-width: 900px) {
+            .banner-container .jobsinfo {
+                display: block;
+            }
+
+            .banner-container {
+                position: relative;
+                background: linear-gradient(to right, rgb(7, 111, 156) 0%, rgb(13, 242, 242) 100%);
+                height: 320px;
+                width: 100%;
+            }
+
+            .has-search .form-control {
+                padding-left: 2.375rem;
+            }
+
+            .has-search .form-control-feedback {
+                position: absolute;
+                z-index: 2;
+                display: block;
+                width: 2.375rem;
+                height: 2.375rem;
+                line-height: 2.375rem;
+                text-align: center;
+                pointer-events: none;
+                color: #aaa;
+            }
+
+            .banner-container .search_bar {
+                width: 650px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .input-group.search_bar.home {
+                border: 6px solid #4a948f;
+                border-radius: 6px;
+            }
+
+            .banner-container .jobsinfo {
+                position: absolute;
+                top: 50px;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+                /* background: #77d7c1a8; */
+                background: linear-gradient(to right, rgb(7, 111, 156) 0%, rgb(13, 242, 242) 100%);
+                padding: 20px;
+                color: #fff;
+                font-weight: 500;
+                font-family: 'Roboto', sans-serif;
+                width: 850px;
+            }
+
+            .jobsinfo input::placeholder {
+                color: #d0cfce !important;
+                font-family: "Krub", Arial, sans-serif;
+            }
+
+            .jobsinfo p {
+                letter-spacing: 2px;
+                word-spacing: 5px;
+                text-align: center;
+            }
+
+            .banner-container .jobcount {
+                font-size: 30px;
+                font-family: 'Montserrat', sans-serif;
+            }
+        }
+
+        .home h1 {
+            padding-bottom: 20px
+        }
+
+        .icons {
+            padding-bottom: 40px;
+        }
+
+        .icons img {
+            width: 130px;
+        }
+
+        .icon-wrappper {
+            text-align: center;
+        }
+
+        .icon-wrappper h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #54595f
+        }
+
+        .icons .icon-wrappper:hover {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .icon-wrappper a {
+            font-weight: 500
+        }
+
+        .icon-wrappper a:hover {
+            text-decoration: none;
+        }
+
+        @media (max-width: 575px) {
+            .home p {
+                line-height: inherit;
+                padding: 0 15px
+            }
+
+            .icon-wrappper h2 {
+                font-size: 12px;
+            }
+
+            .icon-wrappper {
+                padding-bottom: 20px;
+            }
+
+            .icons .icon-wrappper:hover {
+                transform: scale(1.2)
+            }
+        }
+
+        .container1 {
+            margin-left: 60px;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        @media screen and(min-width: 576px) and (max-width:767px) {
+            .container1 {
+                max-width: 540px;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width:991px) {
+            .container1 {
+                max-width: 720px;
+            }
+        }
+
+        @media screen and (min-width: 992px) and (max-width:1199px) {
+            .container1 {
+                max-width: 1100px;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            .container1 {
+                max-width: 1400px;
+            }
+        }
+
+        .ml-set {
+            margin-left: auto !important;
+        }
+
+        @media (min-width: 300px) and (max-width:840px) {
+            .container1 {
+                margin-left: 30px;
+            }
+        }
+
+        #email-banner {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            /* Use rgba for transparency */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            z-index: 2000;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+        }
+
+        #email-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            border-radius: 15px;
+            background: url('/static/assets/pexels-photo-1957693.webp') no-repeat center center fixed;
+            /* Add a blurry image URL */
+            background-size: cover;
+            /* Add blur to the image */
+            z-index: -1;
+        }
+
+        .close-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 40px;
+        }
+
+        @media screen and (min-width: 700px) {
+            #email-banner {
+                display: none;
+                /* Hide by default */
+                position: fixed;
+                top: 52%;
+                /* Center vertically */
+                left: 50%;
+                /* Center horizontally */
+                transform: translate(-50%, -50%);
+                width: 70%;
+                /* Adjust the width as needed */
+                max-width: 600px;
+                /* Set a maximum width if desired */
+            }
+        }
+
+        .email-p {
+            margin-top: 10%;
+            font-size: larger;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .email-input {
+            font-family: "Krub", Arial, sans-serif;
+            height: 36px;
+            width: 60%;
+            border-radius: 5px;
+            border: 1px solid #000;
+        }
+
+        #email-banner input:focus {
+            border-color: #000;
+            /* Change border color on focus */
+        }
+
+
+        #email-banner button {
+            background-color: #3498db;
+            /* Set background color */
+            color: #fff;
+            /* Set text color */
+            border: none;
+            /* Remove default border */
+            border-radius: 5px;
+            /* Add border-radius */
+            padding: 7px 15px;
+            /* Adjust padding as needed */
+            cursor: pointer;
+            font-family: "Krub", Arial, sans-serif;
+        }
+
+        #email-banner button:hover {
+            background-color: #297fb8;
+            /* Change background color on hover */
+        }
+    </style>
+</head>
+
+
+<!-- NAVBAR + LITTLE CSS..NOT MUCH -->
+
+<body aria-hidden="false" style="padding: 0px; overflow-x:hidden">
+    <!-- <div id="email-banner">
+        <span class="close-icon" onclick="closeBanner()">&times;</span>
+        <p class="email-p" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);">Subscribe to our newsletter for updates!
+        </p>
+        <p class="email-p"
+            style="margin-top: 0%; line-height: 0; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); margin-bottom: 7%;">
+            Get the job updates as soon as it lands on your tips.
+        </p>
+        <form id="subscribeForm">
+            <input type="email" id="emailInput" placeholder="Enter your email for updates.." class="email-input">
+            <button onclick="subscribe()" class="close-btn">Subscribe</button>
+        </form>
+    </div>
+    <script>
+        function showBanner() {
+            setTimeout(function () {
+                if (!localStorage.getItem('subscribed')) {
+                    document.getElementById('email-banner').style.display = 'block';
+                }
+            }, 4000);
+        }
+        function closeBanner() {
+            localStorage.setItem('subscribed', 'true');
+            document.getElementById('email-banner').style.display = 'none';
+        }
+
+        function subscribe() {
+            var emailInput = document.getElementById('emailInput');
+            var email = emailInput.value;
+
+
+            if (emailInput.checkValidity()) {
+                alert('Thank you for subscribing!');
+                window.location.href = 'index.html';
+                closeBanner();
+            } else {
+
+                alert('Please enter a valid email address.');
+            }
+        }
+        window.onload = showBanner;
+    </script> -->
+    <nav class="navbar navbar-expand-lg navbar-dark" id="main-menu"
+        style="background: linear-gradient(to right, rgb(13, 242, 242) 0%, rgb(42, 157, 206) 100%); position: sticky; width: 100%; top:0% ;z-index: 400;">
+        <div class="container1">
+            <a class="navbar-brand mr-3" id="logo" href="/"> <img src="/static/assets/final.PNG" alt="Logo"
+                    class="img-fluid"></a>
+            <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                    role="img" width="22" height="22" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                    <path fill="white" d="M20 5V2H0v3h20zm0 6V8H0v3h20zm0 6v-3H0v3h20z"></path>
+                </svg>
+            </button>
+            <style>
+                #logo img {
+                    height: 67px;
+                    width: 210px;
+                    transform: scale(1.21);
+                    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+                }
+
+                #logo {
+                    display: flex;
+                    align-items: center;
+                }
+
+                /* Optional: Adjust the navbar brand text styling */
+                #logo a {
+                    color: white;
+                    /* Adjust the color of the text */
+                    font-size: 1.2rem;
+                    /* Adjust the font size of the text */
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                /* Optional: Center the logo vertically within the navbar */
+                .navbar-brand {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .navbar-nav a {
+                    position: relative;
+                    text-decoration: none;
+                    font-weight: 500;
+                    overflow: hidden;
+                }
+
+                .navbar-nav a::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    /* Adjust the height of the underline as needed */
+                    background-color: whitesmoke;
+                    /* Adjust the color of the underline as needed */
+                    transition: width 0.4s ease-in-out;
+                }
+
+                .navbar-nav a:hover::before {
+                    width: 100%;
+                }
+
+                #main-nav {
+                    max-height: 50;
+                    overflow: hidden;
+                    transition: max-height 0.3s ease-in-out;
+                }
+
+                .show #main-nav {
+                    max-height: 70px;
+                    transition: max-height 0.5s ease-in-out;
+                    /* Adjust the maximum height as needed */
+                }
+            </style>
+
+            <div class="collapse navbar-collapse" id="main-nav">
+                <ul class="navbar-nav ml-set">
+                    <li class="nav-item active"> <a class="nav-link" href="/"
+                            style=" display:block; color: black; text-decoration: none; font-weight: 700;"
+                            onmouseover="this.style.fontWeight='740'"
+                            onmouseout=" this.style.fontWeight='700';">Home</a>
+                    </li>
+                    <li class="nav-item "> <a class="nav-link" href="/all_jobs"
+                            style="display:block;  color: black; text-decoration: none; font-weight: 700;"
+                            onmouseover="this.style.fontWeight='740'" onmouseout=" this.style.fontWeight='700';">Latest
+                            Jobs</a> </li>
+                    <li class="nav-item "> <a class="nav-link" href="/results"
+                            style="display:block;  color: black; text-decoration: none; font-weight: 700;"
+                            onmouseover="this.style.fontWeight='740'"
+                            onmouseout=" this.style.fontWeight='700';">Results</a>
+                    </li>
+                    <li class="nav-item "> <a class="nav-link" href="/admits"
+                            style="display:block;  color: black; text-decoration: none; font-weight: 700;"
+                            onmouseover="this.style.fontWeight='740'" onmouseout=" this.style.fontWeight='700';">Admit
+                            Card</a> </li>
+                    {% if toggel %}
+                    <li class="nav-item "> <a class="nav-link" href="/logout"
+                            style="display:block;  color: black; text-decoration: none; font-weight: 700;"
+                            onmouseover="this.style.fontWeight='740'"
+                            onmouseout=" this.style.fontWeight='700';">LogOut</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item "> <a class="nav-link" href="/login"
+                            style="display:block;  color: black; text-decoration: none; font-weight: 700;"
+                            onmouseover="this.style.fontWeight='740'" onmouseout=" this.style.fontWeight='700';">Log
+                            In/Sign Up</a> </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <button class="navbar-toggler1" id="navbar-toggler1" type="button" data-toggle="collapse"
+                data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                    role="img" width="22" height="22" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                    <path fill="white" d="M20 5V2H0v3h20zm0 6V8H0v3h20zm0 6v-3H0v3h20z"></path>
+                </svg>
+            </button>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var button = document.getElementById('navbar-toggler');
+                var target = document.getElementById('main-nav');
+
+                if (button && target) {
+                    button.addEventListener('click', function () {
+                        target.classList.toggle('show');
+                    });
+
+                    // Close the collapsed content when the button is clicked again
+                    document.addEventListener('click', function (event) {
+                        if (!button.contains(event.target) && !target.contains(event.target)) {
+                            target.classList.remove('show');
+                        }
+                    });
+                }
+            });
+        </script>
+    </nav>
+    <style type="text/css">
+        #mobile_search {
+            display: none;
+        }
+
+        #search_block {
+            background: #e8e8e8;
+            border-radius: 9px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            #mobile_search {
+                display: block;
+            }
+        }
+    </style>
+    <style type="text/css">
+        #latest_job_search {
+            display: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+            #latest_job_search {
+                display: block;
+            }
+        }
+    </style>
+
+    <!-- BANNER FOR SEARCH PURPOSE(UNIVERSAL SEARCH) -->
+    <div class="white home">
+        <div class="banner-container">
+            <div class="jobsinfo text-center">
+                <div style="font-size: 26px;font-weight: bold;" class="pb-2 mb-2">All Government
+                    Jobs Updates</div>
+                <!-- https://site/browse -->
+                <form method="post" action="/all_jobs">
+                    <div class="input-group search_bar pb-3 pt-3">
+                        <input type="text" class="form-control rounded-0" id="search_query" name="job_name" value=""
+                            placeholder="Search Jobs,Cities, Admit Cards, Results ...." required="">
+                        <div class="input-group-append"> <button class="btn btn-sm btn-primary m-0" type="submit">
+                                <span class="fa fa-search"></span> search </button> </div>
+                    </div>
+                </form>
+                <div class="jobcount">Many Notifications and More Jobs</div>
+            </div>
+        </div>
+        <div class="banner-container" id="latest_job_search"
+            style="background: linear-gradient(to right, rgb(7, 111, 156) 0%, rgb(13, 242, 242) 100%);">
+            <div class="text-center container pt-5 pb-5">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <!-- https://site/browse -->
+                        <form method="post" action="/all_jobs">
+                            <div class="input-group search_bar home mb-3 mt-3"> <input type="text"
+                                    class="form-control rounded-0" name="q" value=""
+                                    placeholder="Search Jobs, syllabus, Admit Cards, Results ....">
+                                <div class="input-group-append"> <button aria-label="Search Jobs"
+                                        class="btn btn-sm btn-primary m-0" type="submit"> <span
+                                            class="fa fa-search"></span> </button> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .ml-3 {
+                margin-left: 32%;
+            }
+
+            @media (min-width:900px) and (max-width:1385px) {
+                .ml-3 {
+                    margin-left: 24%;
+                }
+            }
+
+            @media (min-width:300px) and (max-width:768px) {
+                .ml-3 {
+                    margin-left: -2.5%;
+                }
+            }
+
+            @media (min-width:768px) and (max-width:900px) {
+                .ml-3 {
+                    margin-left: 23%;
+                }
+            }
+        </style>
+        <div class="text-center pt-5 pb-4 ">
+            <h1>FreesarkariJob- Best Govt Job Site</h1>
+            <h2 class="mb-4 font-weight-bold">Get Your Latest Government Jobs</h2>
+            <div class="row">
+                <div class="col-md-6 offset-md-3 ml-3">
+                    <p>Explore the world of FreesarkariJob, which offer a wide range of career options.</p>
+                </div>
+
+            </div>
+        </div>
+        <!-- JOBS BY PERTICULAR FIELDS -->
+        <div class="icons">
+            <div class="container qualifications-section">
+                <h2 class="text-center font-weight-bold pad-6">Most Searched Keywords</h2>
+                <div class="row1">
+                    {% for job in job_name %}
+                    <div class="col-md-2 margin-b3 icon-wrappper pad-5 white">
+                        <a style="font-weight:bold; margin:2px; justify-content: center;" href="/jobs/{{job}}">
+                            {{ job }}
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <style type="text/css">
+            .qualifications-section {
+                background-color: #f9f9f9;
+                padding: 20px;
+                /* Adjust padding for larger screens */
+            }
+
+            .qualifications-section a {
+                color: #198276;
+            }
+
+            .pad-5 {
+                padding: 6px 10px;
+                /* Adjust padding for larger screens */
+                margin: 7px;
+            }
+
+            .row1 {
+                display: flex;
+                flex-wrap: wrap;
+                line-height: 1.3;
+                justify-content: center;
+                /* Center the items within the row */
+            }
+
+            .pad-6 {
+                padding: 20px 0;
+                /* Adjust padding for larger screens */
+            }
+
+            .margin-b3 {
+                margin-bottom: 13px;
+            }
+
+            @media (max-width: 767px) {
+
+                .pad-5,
+                .pad-6 {
+                    padding: 10px;
+                }
+            }
+
+            @media (min-width: 768px) and (max-width: 1199px) {
+                .qualifications-section {
+                    padding: 15px;
+                    /* Adjust padding for medium-sized screens */
+                }
+            }
+        </style>
+
+        <!-- SOME JOB POSTINGS SHOW UP , PAGINATION ON THE LATER PAGE FOR ALL JOBS -->
+        <div class="container mb-5">
+            <h2 class="text-center font-weight-bold">All Government Jobs</h2>
+            <div class="row mt-4">
+                <div class="col-md-10 offset-md-1">
+                    <div class="row mb-3" style="margin-left: 0 !important;">
+                        {% for i in details %}
+                        {% if loop.index > 1 and loop.index < 20 %} {% if 'govtjobguru.in' in i.link %} <div
+                            class="col-md-6 mb-4 d-flex">
+                            <span class="mr-3"><i class="fa fa-angle-double-right text-danger"
+                                    aria-hidden="true"></i></span>
+                            <a target="_blank" href="/job_details/{{i.counter_id}}">{{i.genre}} {{i.post_name}}</a>
+                    </div>
+
+                    {% else %}
+
+                    <div class="col-md-6 mb-4 d-flex"><span class="mr-3"><i class="fa fa-angle-double-right text-danger"
+                                aria-hidden="true"></i></span><a target="_blank" href="{{i.link}}">{{i.genre}}
+                            {{i.post_name}}</a></div>
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                    <div class="text-center " , style="display:block; margin:auto "><a href="/all_jobs"
+                            class="btn btn-primary btn-lg">View More
+                            Jobs</a>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+
+
+        <!-- BY QUALIFICATION...HAVEN'T THOUGHT THROUGH IT BUT STILL -->
+        <div class="qualifications-section">
+            <div class="container pt-4">
+                <h2 class="text-center font-weight-bold mb-4">All Government Jobs by Qualifications</h2>
+                <div class="row mt-4 jobsbyqua" style="margin-left: -6px !important;">
+                    <div class="col-md-4">
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/8th"><strong>8th or Below</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/ANM"><strong>ANM</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/B.Sc"><strong>B.Sc/B.Sc Nursing</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/Diploma"><strong>Diploma</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/B.Tech"><strong>B.Tech</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/Agricultural Engineering"><strong>Agricultural
+                                    Engineering</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/M.Sc"><strong>M.SC</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/BE"><strong>B.E</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/MA"><strong>M.A</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/LLB"><strong>LLB</strong></a>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/10th"><strong>10th/Secondary</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/ITI"><strong>ITI</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/B.V.Sc"><strong>B.V.Sc</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/DMLT"><strong>DMLT</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/B.Pharma"><strong>B.Pharma</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/Engineering"><strong>Engineering</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/Architectural Engineering"><strong>Architectural
+                                    Engineering</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/M.Tech"><strong>M.Tech</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/Post Graduation"><strong>Post Graduation/PG</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/MCA"><strong>MCA</strong></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/12th"><strong>12th/Graduation</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/B.Ed"><strong>B.Ed</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/BDS"><strong>BDS</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/DNB"><strong>DNB</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/Aeronautical Engineering"><strong>Aeronautical
+                                    Engineering</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/Chemical Engineering"><strong>Chemical Engineering</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/Gate"><strong>GATE</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/CA"><strong>CA</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/M.Sc"><strong>M.SC</strong></a>
+                        </div>
+                        <div class="mb-3 p-3 white text-center">
+                            <a href="/qualification/Medical"><strong>Medical</strong></a>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-4">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        {% extends "layout.html" %}
+
+        {% block body %}
+        {% endblock %}

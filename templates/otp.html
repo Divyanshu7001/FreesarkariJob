@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OTP Verification</title>
+</head>
+
+<body>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+        * {
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin: 0;
+            display: inline-block;
+            border-bottom: 7px solid;
+            border-radius: 5px;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            padding: 0;
+            margin: 0;
+            background-image: url("../static/assets/register.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center top;
+            height: auto;
+            width: auto;
+        }
+
+        .otp-card {
+            margin: 10%;
+            margin-left: 28%;
+            margin-right: 28%;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            text-align: center;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px -20px black;
+        }
+
+        .otp-card-inputs {
+            margin: 30px;
+            display: grid;
+            gap: 25px;
+            justify-content: center;
+            grid-template-columns: repeat(4, auto);
+        }
+
+        .otp-card-inputs input {
+            width: 60px;
+            height: 70px;
+            font-size: 30px;
+            justify-content: center;
+            text-align: center;
+            border-radius: 15px;
+            border: 1px solid black;
+        }
+
+        .otp-card-inputs input:focus {
+            outline: 2px solid #094071;
+            border-color: transparent;
+        }
+
+        .otp-card button {
+            background-color: #094071;
+            border: none;
+            padding: 15px 50px;
+            font-size: 18px;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .otp-card button:hover {
+            opacity: 0.9;
+            cursor: pointer;
+        }
+
+        .otp-card button[disabled] {
+            opacity: 0.6;
+            cursor: default;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        .flash_msg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <form method="post" action="/otp_validate">
+        <div class="otp-card">
+            <h1>Otp Verification</h1>
+            <div id="flash_message">
+                {% with message = get_flashed_messages() %}
+                {% if message %}
+                {% for i in message %}
+                <p class="flash_msg" style="font-size: larger; text-align:center; padding: 10px 50px;">{{ i
+                    }}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+            <!-- <p>Code has been sent to ******@gmail.com</p> -->
+            <div class="otp-card-inputs">
+                <input type="text" id="otp" name="otp1" maxlength="1" autofocus>
+                <input type="text" id="otp" name="otp2" maxlength="1">
+                <input type="text" id="otp" name="otp3" maxlength="1">
+                <input type="text" id="otp" name="otp4" maxlength="1">
+            </div>
+            <p>Didn't get the otp <a href="#">Resend</a></p>
+            <button disabled>Verify</button>
+        </div>
+    </form>
+</body>
+<script src="{{ url_for('static',filename='assets/js/flash.js') }}"></script>
+<script src="{{ url_for('static',filename='assets/js/verify.js') }}"></script>
+
+</html>

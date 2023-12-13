@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 0;
+            background-image: url("../static/assets/log.svg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (min-width:600px) and (max-width:899px) {
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+        }
+
+        .container2 {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        @media screen and (min-width: 600px) and (max-width: 767px) {
+            html {
+                background-color: #fff;
+                height: 80%;
+                width: 80%;
+                margin-bottom: 0;
+            }
+
+            .container2 {
+                width: 90%;
+            }
+        }
+
+        /* Styles for larger screens */
+        @media screen and (min-width: 768px) {
+            .container2 {
+                width: 50%;
+            }
+        }
+
+        /* Styles for extra-large screens */
+        @media screen and (min-width: 1200px) {
+            .container2 {
+                width: 40%;
+            }
+        }
+
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            box-sizing: border-box;
+            min-width: 100%;
+            margin-top: 20px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        label,
+        input,
+        textarea {
+            display: block;
+            margin-bottom: 10px;
+            width: max-content;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <link async="" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ url_for('static',filename = 'assets/css/main.css')}}" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" id="main-menu"
+        style="background: linear-gradient(to right, rgb(13, 242, 242) 0%, rgb(42, 157, 206) 100%); position: sticky; width: 100%; top:0% ;z-index: 400;">
+        <div class="container1">
+            <a class="navbar-brand mr-3" id="logo" href="/"> <img src="/static/assets/final.PNG" alt="Logo"
+                    class="img-fluid"></a>
+            <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                    role="img" width="22" height="22" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                    <path fill="white" d="M20 5V2H0v3h20zm0 6V8H0v3h20zm0 6v-3H0v3h20z"></path>
+                </svg>
+            </button>
+            <style>
+                #logo img {
+                    height: 67px;
+                    width: 210px;
+                    transform: scale(1.21);
+                    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+                }
+
+                #logo {
+                    display: flex;
+                    align-items: center;
+                }
+
+                /* Optional: Adjust the navbar brand text styling */
+                #logo a {
+                    color: white;
+                    /* Adjust the color of the text */
+                    font-size: 1.2rem;
+                    /* Adjust the font size of the text */
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                /* Optional: Center the logo vertically within the navbar */
+                .navbar-brand {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .navbar-nav a {
+                    position: relative;
+                    text-decoration: none;
+                    font-weight: 500;
+                    overflow: hidden;
+                }
+
+                .navbar-nav a::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    /* Adjust the height of the underline as needed */
+                    background-color: whitesmoke;
+                    /* Adjust the color of the underline as needed */
+                    transition: width 0.4s ease-in-out;
+                }
+
+                .navbar-nav a:hover::before {
+                    width: 100%;
+                }
+
+                .container1 {
+                    margin-left: 60px;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -ms-flex-wrap: wrap;
+                    flex-wrap: wrap;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    -ms-flex-pack: justify;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+
+                @media screen and(min-width: 576px) and (max-width:767px) {
+                    .container1 {
+                        max-width: 540px;
+                    }
+                }
+
+                @media screen and (min-width: 768px) and (max-width:991px) {
+                    .container1 {
+                        max-width: 720px;
+                    }
+                }
+
+                @media screen and (min-width: 992px) and (max-width:1199px) {
+                    .container1 {
+                        max-width: 1100px;
+                    }
+                }
+
+                @media screen and (min-width: 1200px) {
+                    .container1 {
+                        max-width: 1400px;
+                    }
+                }
+
+                .ml-set {
+                    margin-left: auto !important;
+                }
+
+                @media (min-width: 300px) and (max-width:840px) {
+                    .container1 {
+                        margin-left: 30px;
+                    }
+                }
+            </style>
+
+            <div class="collapse navbar-collapse" id="main-nav">
+                <ul class="navbar-nav ml-set">
+                    <li class="nav-item active"> <a class="nav-link" href="/"
+                            style="color: black; text-decoration: none; font-weight: 700;"
+                            onmouseover="this.style.fontWeight='740'"
+                            onmouseout=" this.style.fontWeight='700';">Home</a>
+                    </li>
+                    <li class="nav-item "> <a class="nav-link" href="/all_jobs"
+                            style="color: black; text-decoration: none; font-weight: 700;"
+                            onmouseover="this.style.fontWeight='740'" onmouseout=" this.style.fontWeight='700';">Latest
+                            Jobs</a> </li>
+                    <li class="nav-item "> <a class="nav-link" href="/results"
+                            style="color: black; text-decoration: none; font-weight: 700;"
+                            onmouseover="this.style.fontWeight='740'"
+                            onmouseout=" this.style.fontWeight='700';">Results</a>
+                    </li>
+                    <li class="nav-item "> <a class="nav-link" href="/admits"
+                            style="color: black; text-decoration: none; font-weight: 700;"
+                            onmouseover="this.style.fontWeight='740'" onmouseout=" this.style.fontWeight='700';">Admit
+                            Card</a> </li>
+                    {% if toggel %}
+                    <li class="nav-item "> <a class="nav-link" href="/logout"
+                            style="color: black; text-decoration: none; font-weight: 700;"
+                            onmouseover="this.style.fontWeight='740'"
+                            onmouseout=" this.style.fontWeight='700';">LogOut</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item "> <a class="nav-link" href="/login"
+                            style="color: black; text-decoration: none; font-weight: 700;"
+                            onmouseover="this.style.fontWeight='740'" onmouseout=" this.style.fontWeight='700';">Log
+                            In/Sign Up</a> </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <button class="navbar-toggler1" id="navbar-toggler1" type="button" data-toggle="collapse"
+                data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                    role="img" width="22" height="22" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+                    <path fill="white" d="M20 5V2H0v3h20zm0 6V8H0v3h20zm0 6v-3H0v3h20z"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var button = document.getElementById('navbar-toggler');
+            var target = document.getElementById('main-nav');
+
+            if (button && target) {
+                button.addEventListener('click', function () {
+                    target.classList.toggle('show');
+                });
+
+                // Close the collapsed content when the button is clicked again
+                document.addEventListener('click', function (event) {
+                    if (!button.contains(event.target) && !target.contains(event.target)) {
+                        target.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
+    <div class="container pb-4" style="margin-top: 20px;"><br>
+        <h1 class="text-center p-4" style=" text-decoration: underline black;">About Us</h1>
+        <div class="page_content text-justify fr">
+            <p style="font-size: medium; font-weight: 600;">Discover your ideal
+                government job with Freesarkarijob, a
+                premier website
+                dedicated to providing
+                comprehensive
+                information on government job opportunities. Our platform offers a user-friendly interface, making it
+                effortless for you
+                to explore and find government jobs across various sectors, including Finance, Engineering, and Sports
+                Quota.</p>
+
+            <p style="font-size: medium; font-weight: 600;"> We specialize in delivering job information tailored to
+                different qualification metrics, ensuring you
+                can easily locate
+                positions that match your skills and aspirations. Stay updated with our timely notifications for each
+                job post,
+                preventing you from missing out on any crucial opportunities. Simply visit our website to view jobs in
+                your category.</p>
+
+            <p style="font-size: medium; font-weight: 600;">Benefit from our in-depth analysis, which highlights top job
+                opportunities presented by reputable
+                recruitment boards such as AAI, AHC, AIMMS, Delhi, and more. Count on us to provide accurate and timely
+                job information,streamlining your job search process.</p>
+            <p style="font-size: medium; font-weight: 600;">At Freesarkarijob, we are committed to being your ultimate
+                resource for government job queries.</p>
+        </div>
+    </div>
+    <style>
+        @media (min-width:600px) and (max-width:768px) {
+            body {
+                height: 100vh;
+                width: 100vw;
+            }
+
+            html {
+                overflow-x: hidden;
+                overflow-y: hidden;
+            }
+        }
+
+        @media (min-width:300px) and (max-width:501px) {
+            .container2 {
+                width: 80%;
+                max-width: 400px;
+            }
+        }
+
+        @media (min-width:502px) and (max-width:768px) {
+            .container2 {
+                width: 90%;
+                max-width: 600px;
+            }
+        }
+
+        @media (min-width:769px) {
+            .container2 {
+                width: 100%;
+                max-width: 750px;
+            }
+        }
+    </style>
+    <div class="container2" style="background: rgba(256, 256, 256, .5);;">
+        <h2 style="font-weight: 700 !important; text-decoration: underline black;">Contact Us</h2>
+        <form action="/contact_us" method="post">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ email }}" required disabled>
+
+            <label for="name">Subject:</label>
+            <input type="text" id="subject" name="subject" required placeholder="Enter Your Subject">
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required placeholder="Enter Your Message"></textarea>
+
+            <input type="submit" onclick="pop()" value="Submit"><br>
+
+            <h3 style="font-weight: bold; margin-bottom: 10px;">For any suggestion , Reports , bugs or to request for
+                any new
+                functionality , Contact us on the
+                folllowing deatils: </h3>
+            <h4 style="margin-bottom: 5px !important;">Contact Number: 9002675759</h4>
+            <h4 style="margin-top: 3px !important;">Contact ID: freesarkarijob.mail@gmail.com</h4>
+        </form>
+    </div>
+    <br><br>
+</body>
+<script>
+    function pop() {
+        alert("Your message has been sent successfully, We will respond you soon...");
+    }
+</script>
+
+</html>

@@ -1,0 +1,9 @@
+localhost_3308.sql
+config.json
+auth.*
+*.crypton
+id.*
+*.pyc
+*.cpython-311.pyc
+*__pycache__
+*.json

@@ -1,0 +1,657 @@
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+.table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+
+.table .table {
+  background-color: #fff;
+}
+
+.table-sm td,
+.table-sm th {
+  padding: 0.3rem;
+}
+
+.table-bordered,
+.table-bordered td,
+.table-bordered th {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered thead td,
+.table-bordered thead th {
+  border-bottom-width: 2px;
+}
+
+.table-borderless tbody + tbody,
+.table-borderless td,
+.table-borderless th,
+.table-borderless thead th {
+  border: 0;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-primary,
+.table-primary > td,
+.table-primary > th {
+  background-color: #b8daff;
+}
+
+.table-hover .table-primary:hover,
+.table-hover .table-primary:hover > td,
+.table-hover .table-primary:hover > th {
+  background-color: #9fcdff;
+}
+
+.table-secondary,
+.table-secondary > td,
+.table-secondary > th {
+  background-color: #d6d8db;
+}
+
+.table-hover .table-secondary:hover,
+.table-hover .table-secondary:hover > td,
+.table-hover .table-secondary:hover > th {
+  background-color: #c8cbcf;
+}
+
+.table-success,
+.table-success > td,
+.table-success > th {
+  background-color: #c3e6cb;
+}
+
+.table-hover .table-success:hover,
+.table-hover .table-success:hover > td,
+.table-hover .table-success:hover > th {
+  background-color: #b1dfbb;
+}
+
+.table-info,
+.table-info > td,
+.table-info > th {
+  background-color: #bee5eb;
+}
+
+.table-hover .table-info:hover,
+.table-hover .table-info:hover > td,
+.table-hover .table-info:hover > th {
+  background-color: #abdde5;
+}
+
+.table-warning,
+.table-warning > td,
+.table-warning > th {
+  background-color: #ffeeba;
+}
+
+.table-hover .table-warning:hover,
+.table-hover .table-warning:hover > td,
+.table-hover .table-warning:hover > th {
+  background-color: #ffe8a1;
+}
+
+.table-danger,
+.table-danger > td,
+.table-danger > th {
+  background-color: #f5c6cb;
+}
+
+.table-hover .table-danger:hover,
+.table-hover .table-danger:hover > td,
+.table-hover .table-danger:hover > th {
+  background-color: #f1b0b7;
+}
+
+.table-light,
+.table-light > td,
+.table-light > th {
+  background-color: #fdfdfe;
+}
+
+.table-hover .table-light:hover,
+.table-hover .table-light:hover > td,
+.table-hover .table-light:hover > th {
+  background-color: #ececf6;
+}
+
+.table-dark,
+.table-dark > td,
+.table-dark > th {
+  background-color: #c6c8ca;
+}
+
+.table-hover .table-dark:hover,
+.table-hover .table-dark:hover > td,
+.table-hover .table-dark:hover > th {
+  background-color: #b9bbbe;
+}
+
+.table-active,
+.table-active > td,
+.table-active > th,
+.table-hover .table-active:hover,
+.table-hover .table-active:hover > td,
+.table-hover .table-active:hover > th {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table .thead-dark th {
+  color: #fff;
+  background-color: #212529;
+  border-color: #32383e;
+}
+
+.table .thead-light th {
+  color: #495057;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.table-dark {
+  color: #fff;
+  background-color: #212529;
+}
+
+.table-dark td,
+.table-dark th,
+.table-dark thead th {
+  border-color: #32383e;
+}
+
+.table-dark.table-bordered,
+.table-responsive > .table-bordered {
+  border: 0;
+}
+
+.table-dark.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-dark.table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+@media (max-width: 575.98px) {
+  .table-responsive-sm {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .table-responsive-sm > .table-bordered {
+    border: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .table-responsive-md {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .table-responsive-md > .table-bordered {
+    border: 0;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .table-responsive-lg {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .table-responsive-lg > .table-bordered {
+    border: 0;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .table-responsive-xl {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  .table-responsive-xl > .table-bordered {
+    border: 0;
+  }
+}
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+table.expiring-soon-posts thead tr th,
+table.jobs_table thead tr th,
+table.today-posts thead tr th {
+  min-width: 140px;
+  font-weight: 700;
+  background-color: #195182;
+  color: #fff;
+}
+
+table.expiring-soon-posts tr td,
+table.jobs_table tr td,
+table.today-posts tr td {
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  .jobs_table table,
+  .jobs_table tbody,
+  .jobs_table td,
+  .jobs_table th,
+  .jobs_table thead,
+  .jobs_table tr {
+    display: block;
+  }
+
+  .today-posts table,
+  .today-posts tbody,
+  .today-posts td,
+  .today-posts th,
+  .today-posts thead,
+  .today-posts tr {
+    display: block;
+  }
+
+  .expiring-soon-posts table,
+  .expiring-soon-posts tbody,
+  .expiring-soon-posts td,
+  .expiring-soon-posts th,
+  .expiring-soon-posts thead,
+  .expiring-soon-posts tr {
+    display: block;
+  }
+
+  .expiring-soon-posts thead tr,
+  .jobs_table thead tr,
+  .today-posts thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .expiring-soon-posts tr,
+  .jobs_table tr,
+  .today-posts tr {
+    margin: 0 0 10px 0;
+    border: 1px solid #d0d0d0;
+    box-shadow: 0 0 4px #d0d0d0;
+    padding: 10px;
+  }
+
+  .expiring-soon-posts td,
+  .jobs_table td,
+  .today-posts td {
+    border: none !important;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding: 4px !important;
+    overflow: hidden;
+  }
+
+  .expiring-soon-posts tr:nth-child(odd),
+  .jobs_table tr:nth-child(odd),
+  .today-posts tr:nth-child(odd) {
+    background: #fff !important;
+  }
+
+  .expiring-soon-posts td:before,
+  .jobs_table td:before,
+  .today-posts td:before {
+    position: absolute;
+    top: 0;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  .today-posts td:nth-of-type(1) div:before {
+    content: "Board : ";
+    font-weight: 700;
+    color: #62696f;
+  }
+
+  .today-posts td:nth-of-type(3) div:before {
+    content: "Qualifications : ";
+    font-weight: 700;
+    color: #62696f;
+  }
+
+  .today-posts td:nth-of-type(4) div:before {
+    content: "Last Date : ";
+    font-weight: 700;
+    color: #62696f;
+  }
+
+  .expiring-soon-posts td:nth-of-type(1) div:before {
+    content: "Last Date : ";
+    font-weight: 700;
+    color: #62696f;
+  }
+
+  .expiring-soon-posts td:nth-of-type(2) div:before {
+    content: "Board : ";
+    font-weight: 700;
+    color: #62696f;
+  }
+
+  .expiring-soon-posts td:nth-of-type(4) div:before {
+    content: "Qualifications : ";
+    font-weight: 700;
+    color: #62696f;
+  }
+
+  #jobs_table td:nth-of-type(1) div:before {
+    content: "Board : ";
+    font-weight: 700;
+    color: #62696f;
+  }
+
+  #jobs_table td:nth-of-type(2) div:before {
+    content: "Qualifications : ";
+    font-weight: 700;
+    color: #62696f;
+  }
+
+  #jobs_table td:nth-of-type(3) div:before {
+    content: "Vacancies : ";
+    font-weight: 700;
+    color: #62696f;
+  }
+
+  #jobs_table td:nth-of-type(4) div:before {
+    content: "Last Date : ";
+    font-weight: 700;
+    color: #62696f;
+  }
+}
+
+nav.navbar {
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  font-weight: 300;
+}
+
+nav.navbar li.nav-item a.nav-link {
+  font-weight: 600;
+  color: #fff !important;
+}
+
+.brand {
+  background: #094071;
+}
+
+.search_bar {
+  padding-top: 10px;
+}
+
+#main-menu2 {
+  background: #0abe51;
+  z-index: 1;
+  border-bottom: 3px solid #fff;
+}
+
+#main-menu2 li a {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#main-menu2 li.active a,
+#main-menu2 li:hover a {
+  background: #fff;
+  color: #000 !important;
+}
+
+@media (min-width: 992px) {
+  .search_bar {
+    padding-top: 0px !important;
+  }
+
+  #menu_btn {
+    display: none;
+  }
+}
+
+#search_btn {
+  text-transform: capitalize;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+#mobile_search {
+  display: none;
+}
+
+#search_block {
+  background: #e8e8e8;
+  border-radius: 9px;
+}
+
+@media only screen and (max-width: 768px) {
+  #mobile_search {
+    display: block;
+  }
+}
+
+#breadcrumbs {
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+.btn-outline-primary,
+.pagination li.page-item.active {
+  background-color: #195182 !important;
+}
+
+.text-primary,
+.pagination a.page-link {
+  color: #195182 !important;
+}
+
+li.page-item.active a.page-link {
+  color: #fff !important;
+}
+
+/* .banner-container .jobsinfo,
+                .banner-container {
+                    display: none
+                } */
+
+@media (min-width: 900px) {
+  .banner-container .jobsinfo {
+    display: block;
+  }
+
+  .banner-container {
+    position: relative;
+    background: linear-gradient(
+      to right,
+      rgb(7, 111, 156) 0%,
+      rgb(13, 242, 242) 100%
+    );
+    width: 100%;
+  }
+
+  .has-search .form-control {
+    padding-left: 2.375rem;
+  }
+
+  .has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+  }
+
+  .banner-container .search_bar {
+    width: 650px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .banner-container .jobsinfo {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    /* background: #77d7c1a8; */
+    background: linear-gradient(
+      to right,
+      rgb(7, 111, 156) 0%,
+      rgb(13, 242, 242) 100%
+    );
+    padding: 20px;
+    color: #fff;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    width: 850px;
+  }
+
+  .jobsinfo input::placeholder {
+    color: #d0cfce !important;
+    font-family: "Krub", Arial, sans-serif;
+  }
+
+  .jobsinfo p {
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    text-align: center;
+  }
+
+  .banner-container .jobcount {
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+.home h1 {
+  padding-bottom: 20px;
+}
+
+.icons {
+  padding-bottom: 40px;
+}
+
+.icons img {
+  width: 130px;
+}
+
+.icon-wrappper {
+  text-align: center;
+}
+
+.icon-wrappper h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #54595f;
+}
+
+.icons .icon-wrappper:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.icon-wrappper a {
+  font-weight: 500;
+}
+
+.icon-wrappper a:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 575px) {
+  .home p {
+    line-height: inherit;
+    padding: 0 15px;
+  }
+
+  .icon-wrappper h2 {
+    font-size: 12px;
+  }
+
+  .icon-wrappper {
+    padding-bottom: 20px;
+  }
+
+  .icons .icon-wrappper:hover {
+    transform: scale(1.2);
+  }
+}
+.center1 {
+  text-align: center !important;
+  padding-top: 15px;
+}
+
+@media (min-width: 370px) {
+  .padding-2 {
+    padding-top: 2%;
+    padding-left: 30%;
+  }
+}
+
+@media (min-width: 600px) {
+  .padding-2 {
+    padding-top: 2%;
+    padding-left: 40%;
+  }
+}
+
+@media (min-width: 770px) {
+  .padding-2 {
+    padding-top: 2%;
+    padding-left: 2%;
+  }
+}

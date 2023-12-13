@@ -1,0 +1,136 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/login.css') }}" />
+    <title>Sign in & Sign up Form</title>
+</head>
+
+<body>
+    <style>
+        .red_indicate {
+            background-color: red
+        }
+
+        .green_indicate {
+            background-color: greenyellow;
+
+            .hide {
+                display: none !important;
+            }
+
+            .flash_msg {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+    </style>
+    <div class="container">
+
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="/login" method="post" class="sign-in-form " id="signIn">
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field ">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="u_name" id="loginuserName" placeholder="Username" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="u_pass" id="loginPassword" placeholder="Password" required />
+                    </div>
+                    <div id="flash_message" style="box-shadow: black; z-index: 100; top: 0%;">
+                        {% with message = get_flashed_messages() %}
+                        {% if message %}
+                        {% for i in message %}
+                        <h1 class="flash_msg"
+                            style="font-size: small; text-align:center; padding: 10px 50px; background-color: bisque; border-radius: 10px; ">
+                            {{ i
+                            }}</h1>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <input type="submit" value="Login" class="btn solid" />
+                    
+                </form>
+                <form action="/register" method="post" class="sign-up-form" id="signUp"
+                    onsubmit="return validateForm()">
+                    <h2 class="title">Sign up</h2>
+                    <div class="input-field ">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="name" id="signupUsername" placeholder="Username" required />
+                    </div>
+                    <div class="input-field ">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="email" id="signupMail" placeholder="Email" required />
+                    </div>
+                    <!-- <div class="input-field ">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" name="phone" id="signupNumber" placeholder="Number" required />
+                    </div> -->
+                    <div class="input-field ">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="signupPassword" placeholder="Password" required minlength="8" />
+                    </div>
+                    <div class="input-field ">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" id="ConfirmPassword" placeholder="Confirm Password"
+                            required required minlength="8" />
+                    </div>
+                    <input type="submit" class="btn" value="Sign up" />
+                    <!-- <p class="social-text">Or Sign up with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+
+
+        <div class="panels-container">
+
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>New here ?</h3>
+                    <p>
+                        Sign up right now!! And stay updated with all the updates you need about your dream job.
+                    </p>
+                    <button class="btn transparent signUp-btn" id="sign-up-btn">
+                        Sign up
+                    </button>
+                </div>
+                <img src="{{ url_for('static',filename='assets/register.svg') }}" class="image" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>One of us ?</h3>
+                    <p>
+                        Log in to your account to get the latest updates you have missed!!
+                    </p>
+                    <button class="btn transparent sign-in-mode signIn-btn" id="sign-in-btn">
+                        Sign in
+                    </button>
+                </div>
+                <img src="{{ url_for('static',filename='assets/log.svg') }}" class="image" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static',filename='assets/js/login.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/js/flash.js') }}"></script>
+    <script src="{{ url_for('static',filename='assets/js/pass.js') }}"></script>
+</body>
+
+</html>
